@@ -1,0 +1,71 @@
+﻿@model EcomCore.Voters
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Edit Voters</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Voter_Id" class="control-label">Voter No</label>
+                <input asp-for="Voter_Id" class="form-control" />
+                <span asp-validation-for="Voter_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Voter_Name" class="control-label"> Name</label>
+                <input asp-for="Voter_Name" class="form-control" />
+                <span asp-validation-for="Voter_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label">Address</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label">City</label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Voter_State_Id" class="control-label">State</label>
+                @Html.DropDownList("StateList", ViewData["StateList"] as SelectList,"--Select--", new { @class="form-control" })
+            <span asp-validation-for="Voter_State_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo" class="control-label"></label>
+                <input asp-for="Photo" type="file" name="VoterPhoto" id="VoterPhoto" onclick="fileCheck(this);" class="form-control" />
+                <span asp-validation-for="Photo"  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Voter_Verified" class="control-label">Voter Verified</label>
+                @Html.DropDownList("vFlag", ViewData["vFlag"] as SelectList,"--Select--", new { @class="form-control" })
+                <span asp-validation-for="Voter_Verified" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2">
+
+        <div>
+            <img src="/voter/RetrieveImage/@ViewBag.id" class="form-control" alt="" height=150 width=100 />
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Lists">Back to List</a>
+</div>
+

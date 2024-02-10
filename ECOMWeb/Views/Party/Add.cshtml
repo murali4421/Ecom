@@ -1,0 +1,38 @@
+﻿@model EcomCore.PartyLists
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>New Parties</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>            
+            <div class="form-group">
+                <label asp-for="Party_Name" class="control-label"> Party Name </label>
+                <input asp-for="Party_Name" class="form-control" />
+                <span asp-validation-for="Party_Name" class="text-danger"></span>
+                
+            </div>
+
+            <br />
+            <div class="form-group">
+                <label asp-for="Symbol" class="control-label"></label>
+                @Html.DropDownList("SymbolList", ViewData["SymbolList"] as SelectList,"--Select--", new { @class="form-control" })
+                <span asp-validation-for="Symbol" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Lists">Back to List</a>
+</div>
+

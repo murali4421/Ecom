@@ -1,0 +1,35 @@
+﻿@model EcomCore.SeatAllocation
+
+@{
+    ViewData["Title"] = "Seats Modification";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Seats Modification</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="MP_state" class="control-label"> State Name</label>
+                <input asp-for="MP_state" class="form-control" />
+                <span asp-validation-for="MP_state" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Total_seats" class="control-label"> Total Seats</label>
+                <input asp-for="Total_seats" class="form-control" />
+                <span asp-validation-for="Total_seats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Lists">Back to List</a>
+</div>
+

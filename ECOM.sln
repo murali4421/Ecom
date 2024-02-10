@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECOMApi", "ECOMApi\ECOMApi.csproj", "{66A03514-6404-46FE-AE98-21F17A8DB048}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcomCore", "EcomCore\EcomCore.csproj", "{8D538464-9C02-467D-9B05-E72C6BB1D8E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECOMWeb", "ECOMWeb\ECOMWeb.csproj", "{D6B0F660-7D03-46C5-A86F-02B270FFB938}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66A03514-6404-46FE-AE98-21F17A8DB048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A03514-6404-46FE-AE98-21F17A8DB048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A03514-6404-46FE-AE98-21F17A8DB048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A03514-6404-46FE-AE98-21F17A8DB048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D538464-9C02-467D-9B05-E72C6BB1D8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D538464-9C02-467D-9B05-E72C6BB1D8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D538464-9C02-467D-9B05-E72C6BB1D8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D538464-9C02-467D-9B05-E72C6BB1D8E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B0F660-7D03-46C5-A86F-02B270FFB938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B0F660-7D03-46C5-A86F-02B270FFB938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B0F660-7D03-46C5-A86F-02B270FFB938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B0F660-7D03-46C5-A86F-02B270FFB938}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9979304B-A24F-4981-9F61-A703698BC635}
+	EndGlobalSection
+EndGlobal

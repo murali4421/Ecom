@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EcomCore.VotedList>
+
+@{
+    ViewData["Title"] = "Voting Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Election Result</h1>
+
+<br />
+@if(TempData["EWinner"] != "")
+{
+    <div class="text-center">
+        <h4 class="display-6">Winner</h4>
+        <h4 class="display-6"><span style="color:limegreen; font-weight:bold;">@TempData["EWinner"] </span></h4>
+        <h6 class="display-6">Total States  : @TempData["EWinnerVote"] </h6>
+        @* <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+    </div>
+}
+
+<br />
+<table class="table">
+    <thead>
+        <tr>           
+            <th>
+                @Html.DisplayName("Party Name")
+            </th>
+            <th>
+                @Html.DisplayName("State")
+            </th>
+            <th>
+                @Html.DisplayName("Total Votes")
+            </th>
+            <th>
+                @Html.DisplayName("Election Result")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>            
+            <td>
+                @Html.DisplayFor(modelItem => item.party_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mp_state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Vote)
+            </td>
+
+                @if (item.EResult.Equals("Winner"))
+                {
+                    <td>
+                        <span style="color:limegreen; font:bold;">@item.EResult</span>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <span style="color:red; font:bold;">@item.EResult</span>
+                    </td>
+                }              
+        </tr>
+}
+    </tbody>
+</table>

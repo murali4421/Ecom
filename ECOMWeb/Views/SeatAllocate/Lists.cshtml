@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EcomCore.SeatAllocation>
+
+@{
+    ViewData["Title"] = "Seat List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Seat List</h3>
+
+<p>
+    <a asp-action="Add">New Seat</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("State")
+            </th>
+            <th>
+                @Html.DisplayName("Total Seats")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MP_state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_seats)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
+            </td>
+        </tr>        
+}
+        <tr>
+            <td>
+                <label><p style="font-weight: bold;">Total Seats : </p></label>
+            </td>
+            <td>
+                <label> @ViewData["TotalCount"]</label>
+            </td>
+        </tr>
+    </tbody>
+</table>

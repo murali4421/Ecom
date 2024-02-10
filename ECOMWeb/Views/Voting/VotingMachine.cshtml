@@ -1,0 +1,98 @@
+﻿@model IEnumerable<EcomCore.MachineVoteList>
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Voting Mechine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("MachineVote", "Voting", FormMethod.Post))
+{
+    @if (@HttpContextAccessor.HttpContext?.Session.GetString("SuccessMsg") == "" && 
+   @HttpContextAccessor.HttpContext?.Session.GetString("Dashboard") == "VMD")
+    {
+        <h2>Candidates</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Candidate")
+                    </th>
+
+                    <th>
+                        @Html.DisplayName("Symbol")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Select to Vote")
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Party_Name)
+                            </td>
+                            <td>
+                                <img src="/Symbol/RetrieveImage/@item.Symbol_Id" alt="" height=40 width=40 />
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.Party_Id)
+                             </td>*@
+                            <td style="align-items:stretch;">
+                                @Html.RadioButton("Symbol_Id",item.Symbol_Id)
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <input type="submit" value="Vote" class="btn btn-primary" />
+                        </td>
+                    </tr>
+                    <tr style="border:hidden">
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <div style="color: red; align-items:center;">
+                                @if (HttpContextAccessor.HttpContext?.Session.GetString("ErrorMsg") != null)
+                                {
+                                    <p>@HttpContextAccessor.HttpContext?.Session.GetString("ErrorMsg")</p>
+                                    HttpContextAccessor.HttpContext?.Session.SetString("ErrorMsg", "");
+                                }
+                            </div>                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div>
+            @if (HttpContextAccessor.HttpContext?.Session.GetString("SuccessMsg") != null)
+            {
+                <div class="text-center">
+                    <h1 class="display-2">@HttpContextAccessor.HttpContext?.Session.GetString("SuccessMsg")</h1>
+                    <p>Go To the <a asp-action="Voting" asp-controller="Voting">Home Page</a></p>
+                </div>
+                HttpContextAccessor.HttpContext?.Session.SetString("SuccessMsg", "");
+            }
+        </div>        
+    }
+}
+
+
+
+
